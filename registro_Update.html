@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TRAE ID — Prototipo de carnet digital y sistema de seguridad para estudiantes.">
+  <title>RUTAESTE| Carnet Estudiantil Seguro</title>
+  <link rel="icon" href="/img/LOGO.png">
+  <link rel="stylesheet" href="/styles/style_registro.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+   <script src="/scripts/loader.js"></script>
+<body>
+<div class="app">
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark"><img src="/img/logo.ico" alt="RUTAESTE"></div>
+      <div>TRAE ID<small>Identidad y seguridad estudiantil</small></div>
+    </div>
+    <nav id="nav">
+      <button data-page="inicio" class="active">Inicio</button>
+      <button data-page="registro">Registrar</button>
+      <button data-page="carnet">Carnet</button>
+      <button data-page="lector">Lector QR</button>
+      <button data-page="admin">Administración</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="page-inicio" class="page active">
+    <div class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Sistema RUTAESTE</div>
+        <h1>Un carnet digital pensado para la seguridad del estudiante.</h1>
+        <p>Registro, identificación mediante QR, contacto de emergencia y control administrativo en una sola plataforma. Este prototipo demuestra la experiencia de usuario antes de conectarlo a un backend real.</p>
+        <div class="hero-actions">
+          <button class="btn primary" onclick="go('registro')">Crear estudiante</button>
+          <button class="btn secondary" onclick="go('lector')">Probar lector QR</button>
+        </div>
+      </div>
+      <div class="hero-card hero-visual">
+        <div class="mini-card">
+          <div class="mini-top">
+            <div class="mini-photo"><span>Foto</span></div>
+            <div class="mini-info"><strong>RUTAESTE</strong><span>Carnet estudiantil</span></div>
+          </div>
+          <div class="mini-label">ESTUDIANTE</div>
+          <div class="mini-name">Juan Pérez</div>
+          <div class="mini-school">Escuela Modelo · 3ro Secundaria</div>
+          <div class="qr-mini" id="miniQr"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title"><h2>Cómo funciona</h2><span class="muted">Flujo propuesto</span></div>
+    <div class="grid">
+      <div class="card col-4"><h3>Estudiante</h3><p class="muted">Se registra, agrega su foto y recibe un carnet con un código QR único.</p></div>
+      <div class="card col-4"><h3>Padre / tutor</h3><p class="muted">Autoriza datos y mantiene actualizados los contactos de emergencia.</p></div>
+      <div class="card col-4"><h3>Conductor / inspector</h3><p class="muted">Escanea el QR y consulta la identidad y los datos permitidos.</p></div>
+    </div>
+  </section>
+
+  <section id="page-registro" class="page">
+    <div class="section-title"><h2>Registrar estudiante</h2><span class="muted">Crea un carnet de prueba</span></div>
+    <div class="grid">
+      <div class="card col-8">
+        <div id="regSuccess" class="success">Estudiante registrado correctamente. Su carnet está listo.</div>
+        <div id="regError" class="error"></div>
+        <form id="studentForm">
+          <div class="form-grid">
+            <div><label>Nombre</label><input id="firstName" required placeholder="Ej. Juan"></div>
+            <div><label>Apellido</label><input id="lastName" required placeholder="Ej. Pérez"></div>
+            <div><label>Identificación / matrícula</label><input id="studentCode" required placeholder="Ej. TRAE-2026-001"></div>
+            <div><label>Escuela</label><input id="school" required placeholder="Ej. Liceo Modelo"></div>
+            <div><label>Curso / grado</label><input id="grade" required placeholder="Ej. 3ro Secundaria"></div>
+            <div><label>Ruta TRAE</label><input id="route" required placeholder="Ej. R-024"></div>
+            <div><label>Nombre del padre / tutor</label><input id="guardianName" required placeholder="Ej. María Pérez"></div>
+            <div><label>Teléfono de emergencia</label><input id="guardianPhone" required placeholder="+1 809 000 0000"></div>
+            <div class="field full"><label>Correo del padre / tutor</label><input id="guardianEmail" type="email" placeholder="ejemplo@correo.com"></div>
+            <div class="field full">
+              <label>Foto del estudiante</label>
+              <div class="photo-box">
+                <div>
+                  <div class="photo-preview" id="photoPreview"><span>Sin foto</span></div>
+                  <input id="photo" type="file" accept="image/*">
+                  <div class="hint">Para producción, la fotografía debería validarse y almacenarse de forma segura.</div>
+                </div>
+              </div>
+            </div>
+            <div class="field full form-submit">
+              <button class="btn primary" type="submit">Crear carnet + QR</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card col-4">
+        <h3>Protección de datos</h3>
+        <p class="muted">En una versión real, el QR debería contener solamente un identificador o token y no los datos personales completos. El servidor decide qué información puede ver cada rol.</p>
+        <hr class="section-divider">
+        <strong>Roles sugeridos</strong>
+        <p class="muted">Estudiante · Padre/Tutor · Conductor · Escuela · Administración TRAE</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-carnet" class="page">
+    <div class="section-title"><h2>Carnet digital</h2><span class="muted">Vista del estudiante</span></div>
+    <div id="idCardContainer"></div>
+  </section>
+
+  <section id="page-lector" class="page">
+    <div class="section-title"><h2>Lector QR</h2><span class="muted">Simulación de validación</span></div>
+    <div class="scan-layout">
+      <div class="card">
+        <h3>Escanear carnet</h3>
+        <div class="scanner" id="reader"></div>
+        <div class="scan-actions">
+          <button class="btn primary" id="startScan">Activar cámara</button>
+          <button class="btn secondary" id="stopScan">Detener</button>
+        </div>
+        <div class="hint">El acceso a cámara depende de los permisos del navegador y de usar HTTPS o localhost.</div>
+      </div>
+      <div class="card scan-result" id="scanResult">
+        <div class="result-empty"><div><div class="qr-symbol">▦</div><strong>Esperando escaneo</strong><p>Cuando se lea un QR válido, aquí aparecerá la información autorizada.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-admin" class="page">
+    <div class="section-title"><h2>Panel administrativo</h2><span class="muted">Datos guardados en este navegador</span></div>
+    <div class="stats">
+      <div class="stat"><div class="n" id="statStudents">0</div><div class="l">Estudiantes</div></div>
+      <div class="stat"><div class="n" id="statActive">0</div><div class="l">Carnets activos</div></div>
+      <div class="stat"><div class="n" id="statSchools">0</div><div class="l">Escuelas</div></div>
+      <div class="stat"><div class="n" id="statRoutes">0</div><div class="l">Rutas</div></div>
+    </div>
+
+    <div class="card admin-card">
+      <div class="top-toolbar"><div><h3 class="admin-title">Estudiantes registrados</h3><span class="muted">Puedes generar un carnet desde cualquier registro.</span></div><div class="admin-actions"><button class="btn secondary" onclick="loadDemo()">Cargar demo</button><button class="btn ghost" onclick="clearStudents()">Borrar datos</button></div></div>
+      <div class="table-wrap">
+        <table class="table"><thead><tr><th>Estudiante</th><th>Escuela</th><th>Ruta</th><th>Contacto</th><th>Estado</th><th></th></tr></thead>
+        <tbody id="studentsTable"></tbody></table>
+      </div>
+    </div>
+    <div class="footer">Prototipo local. Para producción se requiere backend, autenticación, control por roles, cifrado, auditoría, consentimiento y políticas de protección de datos.</div>
+  </section>
+</main>
+</div>
+
+<script src="scripts/js.js"></script>
+<button class="btn-volver" onclick="salirDeLaApp('index.html')">🏠 Volver a casa</button>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="icon" href="/img/LOGO.png">
+  <title>Sistema Nacional de Transporte Estudiantil | RUTAESTE</title>
+  <script src="/scripts/loader.js"></script>
+
+</head>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark"><img src="/img/logo.ico" alt="RUTAESTE"></div>
+      <div>TRAE ID<small>Identidad y seguridad estudiantil</small></div>
+    </div>
+    <nav id="nav">
+      <button onclick="window.location.href='index.html'" class="active">Inicio</button>
+      <button onclick="window.location.href='Nosotros.html'">Nosotros</button>
+      <button onclick="window.location.href='registro_update.html'">Registro</button>
+    </nav>
+  </div>
+</header>
+<body>
+
+  <div class="banner">
+  <img src="/img/banner new version.png" alt="Logo RUTAESTE">
+</div>
+
+<div class="center">
+
+  <section class="hero0">
+    <center>
+      <h1>¡Bienvenido al Sistema de Transporte Estudiantil!</h1>
+      <p>Garantizamos traer a tus hijos a la escuela y llevarlos seguros a casa, en un transporte cómodo, seguro y gratuito.</p>
+    </center>
+  </section>
+
+  <br>
+<hr>
+  <section class="trae-presentacion1">
+    <h2>¿Qué es RUTAESTE?</h2>
+    <p class="trae-subtitulo">Transporte Estudiantil</p>
+    <p>
+      <strong>RUTAESTE</strong> es el programa oficial de transporte escolar gratuito del
+      Instituto Politécnico Ave María. Nació con la misión de garantizar que ningún
+      estudiante se quede sin llegar a clases por falta de transporte. Operamos rutas
+      seguras, puntuales y supervisadas, cubriendo los principales sectores del área
+      norte de Santo Domingo.
+    </p>
+    <p>
+      Contamos con autobuses modernos, choferes capacitados y un sistema de registro
+      que asigna a cada estudiante su ruta y horario personalizado.
+    </p>
+ 
+    <br>
+    <div class="trae-pilares">
+      <div class="pilar">
+        <span class="pilar-icono">🛡️</span>
+        <span>Viajes seguros</span>
+      </div>
+      <div class="pilar">
+        <span class="pilar-icono">🎓</span>
+        <span>100 % gratuito</span>
+      </div>
+      <div class="pilar">
+        <span class="pilar-icono">🗺️</span>
+        <span>3 rutas activas</span>
+      </div>
+      <div class="pilar">
+        <span class="pilar-icono">🚌</span>
+        <span>9 autobuses</span>
+      </div>
+    </div>
+  </section>
+
+  <br><hr><br>
+
+  <section class="hero">
+    <center><h1>Rutas de Autobuses Escolares</h1></center>
+    <center><p>Consulta rutas, horarios y paradas fácilmente.</p></center>
+  </section>
+
+  <section class="rutas">
+
+    <!-- ── RUTA NORTE (RN-01) ── -->
+    <div class="ruta-card" id="card-norte">
+      <div class="ruta-header" onclick="toggleCard('card-norte')">
+        <div class="ruta-header-left">
+          <span class="ruta-icon">🚍</span>
+          <div>
+            <p class="ruta-titulo">Ruta Norte Escolar (RN-01)</p>
+            <p class="ruta-recorrido-resumen">Villa Mella → Hospital General → Ave María</p>
+          </div>
+        </div>
+        <div class="ruta-header-right">
+          <span class="badge badge-buses">🚌 3 buses</span>
+          <span class="badge badge-activa">✔ Activa</span>
+          <span class="ruta-flecha">▼</span>
+        </div>
+      </div>
+
+      <div class="ruta-body">
+        <iframe
+          class="ruta-mapa"
+          src="https://www.google.com/maps/d/u/0/embed?mid=1RhpLhLIJPWa6T9oKWr-Y9kpcvEeomhI&ehbc=2E312F"
+          loading="lazy"
+          allowfullscreen
+          title="Mapa Ruta Norte"></iframe>
+
+        <div class="ruta-detalles">
+          <div class="detalle-bloque">
+            <h4>📍 Paradas</h4>
+            <ul>
+              <li>Sirena Villa Mella</li>
+              <li>Hospital General</li>
+              <li>Los Coordinadores</li>
+              <li>Estación Sabana Perdida</li>
+              <li>Instituto Politécnico Ave María</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>🚌 Autobuses</h4>
+            <ul>
+              <li>Bus 01</li>
+              <li>Bus 02</li>
+              <li>Bus 03</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>🕐 Horarios</h4>
+            <ul>
+              <li>6:15 AM</li>
+              <li>6:25 AM</li>
+              <li>6:35 AM</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>ℹ️ Información</h4>
+            <div class="detalle-stat">⏱ Duración: <span class="valor">35 min</span></div>
+            <div class="detalle-stat">📏 Distancia: <span class="valor">8 km aprox.</span></div>
+            <div class="detalle-stat">📌 Estado: <span class="valor">Activa</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── RUTA OESTE (RO-02) ── -->
+    <div class="ruta-card" id="card-oeste">
+      <div class="ruta-header" onclick="toggleCard('card-oeste')">
+        <div class="ruta-header-left">
+          <span class="ruta-icon">🚍</span>
+          <div>
+            <p class="ruta-titulo">Ruta Oeste Escolar (RO-02)</p>
+            <p class="ruta-recorrido-resumen">Los Guaricanos → Ave María</p>
+          </div>
+        </div>
+        <div class="ruta-header-right">
+          <span class="badge badge-buses">🚌 3 buses</span>
+          <span class="badge badge-activa">✔ Activa</span>
+          <span class="ruta-flecha">▼</span>
+        </div>
+      </div>
+
+      <div class="ruta-body">
+        <iframe
+          class="ruta-mapa"
+          src="https://www.google.com/maps/d/u/0/embed?mid=13npc8TZJWFdWwq7vRNnT5gHbC9tRqGc&ehbc=2E312F"
+          loading="lazy"
+          allowfullscreen
+          title="Mapa Ruta Oeste"></iframe>
+
+        <div class="ruta-detalles">
+          <div class="detalle-bloque">
+            <h4>📍 Paradas</h4>
+            <ul>
+              <li>Entrada Los Guaricanos</li>
+              <li>Avenida Principal Los Guaricanos</li>
+              <li>Instituto Politécnico Ave María</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>🚌 Autobuses</h4>
+            <ul>
+              <li>Bus 04</li>
+              <li>Bus 05</li>
+              <li>Bus 06</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>🕐 Horarios</h4>
+            <ul>
+              <li>6:20 AM</li>
+              <li>6:30 AM</li>
+              <li>6:40 AM</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>ℹ️ Información</h4>
+            <div class="detalle-stat">⏱ Duración: <span class="valor">20 min</span></div>
+            <div class="detalle-stat">📏 Distancia: <span class="valor">4.5 km aprox.</span></div>
+            <div class="detalle-stat">📌 Estado: <span class="valor">Activa</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── RUTA SUR (RS-03) ── -->
+    <div class="ruta-card" id="card-sur">
+      <div class="ruta-header" onclick="toggleCard('card-sur')">
+        <div class="ruta-header-left">
+          <span class="ruta-icon">🚍</span>
+          <div>
+            <p class="ruta-titulo">Ruta Sur Escolar (RS-03)</p>
+            <p class="ruta-recorrido-resumen">El Cachón → Sabana Centro → Ave María</p>
+          </div>
+        </div>
+        <div class="ruta-header-right">
+          <span class="badge badge-buses">🚌 3 buses</span>
+          <span class="badge badge-activa">✔ Activa</span>
+          <span class="ruta-flecha">▼</span>
+        </div>
+      </div>
+
+      <div class="ruta-body">
+        <iframe
+          class="ruta-mapa"
+          src="https://www.google.com/maps/d/u/0/embed?mid=1DALolXIkSXLvNFrOCTr4LO9HNz-a-xM&ehbc=2E312F"
+          loading="lazy"
+          allowfullscreen
+          title="Mapa Ruta Sur"></iframe>
+
+        <div class="ruta-detalles">
+          <div class="detalle-bloque">
+            <h4>📍 Paradas</h4>
+            <ul>
+              <li>El Cachón</li>
+              <li>Parque Sabana Perdida</li>
+              <li>Instituto Politécnico Ave María</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>🚌 Autobuses</h4>
+            <ul>
+              <li>Bus 07</li>
+              <li>Bus 08</li>
+              <li>Bus 09</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>🕐 Horarios</h4>
+            <ul>
+              <li>6:10 AM</li>
+              <li>6:20 AM</li>
+              <li>6:30 AM</li>
+            </ul>
+          </div>
+
+          <div class="detalle-bloque">
+            <h4>ℹ️ Información</h4>
+            <div class="detalle-stat">⏱ Duración: <span class="valor">15 min</span></div>
+            <div class="detalle-stat">📏 Distancia: <span class="valor">3.5 km aprox.</span></div>
+            <div class="detalle-stat">📌 Estado: <span class="valor">Activa</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+<section class="noticias">
+  <center><h2>Noticias y Avisos</h2></center>
+  <center><p>Mantente al día con las novedades del sistema RUTAESTE.</p></center>
+
+  <div class="noticias-grid">
+
+    <div class="noticia-card">
+      <span class="noticia-fecha">19 mayo 2026</span>
+      <h3>Nueva ruta Sur habilitada</h3>
+      <p>A partir de esta semana la Ruta Sur Escolar (RS-03) inicia operaciones cubriendo el sector El Cachón hasta Ave María.</p>
+    </div>
+
+    <div class="noticia-card">
+      <span class="noticia-fecha">15 mayo 2026</span>
+      <h3>Registro de estudiantes abierto</h3>
+      <p>Ya puedes registrarte para obtener tu tarjeta de transporte. El registro estará disponible hasta el 30 de mayo.</p>
+    </div>
+
+    <div class="noticia-card">
+      <span class="noticia-fecha">10 mayo 2026</span>
+      <h3>Cambio de horario Ruta Norte</h3>
+      <p>El primer despacho de la Ruta Norte pasa de 6:00 AM a 6:15 AM a partir del lunes 12 de mayo.</p>
+    </div>
+
+    <div class="noticia-card">
+      <span class="noticia-fecha">05 mayo 2026</span>
+      <h3>Mantenimiento completado</h3>
+      <p>Todos los autobuses pasaron revisión técnica. La flota está lista para el nuevo período escolar.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <p>© 2026 RUTAESTE | Transporte Estudiantil</p>
+</footer>
+</body>
+</html>
+
+<script>
+
+
+  // Lista de todas las cards de ruta
+  const todasLasCards = ['card-norte', 'card-oeste', 'card-sur'];
+
+  /**
+   * Abre la card con el id dado.
+   * Si ya estaba abierta, la cierra (toggle).
+   * Cierra automáticamente cualquier otra que esté abierta.
+   */
+  function toggleCard(idCard) {
+    const cardActual = document.getElementById(idCard);
+    const estaAbierta = cardActual.classList.contains('abierta');
+
+    // Cerrar todas las cards
+    todasLasCards.forEach(function(id) {
+      document.getElementById(id).classList.remove('abierta');
+    });
+
+    // Si la card no estaba abierta, abrirla ahora
+    if (!estaAbierta) {
+      cardActual.classList.add('abierta');
+    }
+  }
+
+
+  // Bloquear Ctrl + rueda del mouse
+  document.addEventListener('wheel', function(e) {
+    if (e.ctrlKey) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Bloquear Ctrl + +, Ctrl + -, Ctrl + 0
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey &&
+       (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+      e.preventDefault();
+    }
+  });
+</script>

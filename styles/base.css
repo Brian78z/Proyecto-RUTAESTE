@@ -1,0 +1,1300 @@
+
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#F4F7FA;
+  color:#263238;
+  object-fit:cover;
+  display:block;
+}
+
+p{
+  color:#263238;
+}
+
+.app{
+  min-height:100vh;
+}
+
+/* ============================================================
+   ENCABEZADO Y NAVEGACIÓN
+============================================================ */
+
+header{
+  background:#1E88C8;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  font-weight:bold;
+  text-align:left;
+}
+
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:8px;
+  background:#123B5D;
+  padding:5px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+.brand-mark img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.brand small{
+  display:block;
+  font-size:11px;
+  font-weight:normal;
+  margin-top:3px;
+  color:#F4F7FA;
+}
+
+nav{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+nav button{
+  color:#fff;
+  margin:0 5px;
+  font-weight:bold;
+  position:relative;
+  text-decoration:none;
+  padding:10px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-size:14px;
+}
+
+nav button::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:3px;
+  background:#F4C542;
+  transition:.3s;
+}
+
+nav button:hover::after,
+nav button.active::after{
+  width:100%;
+}
+
+nav button:hover,
+nav button.active{
+  color:#fff;
+}
+
+/* Menú responsive (igual que en registro) */
+@media(max-width:620px){
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  nav{
+    width:100%;
+    justify-content:flex-start;
+  }
+}
+
+@media(max-width:480px){
+  nav button{
+    margin:0;
+    padding:8px;
+  }
+}
+.hero1{
+      text-align:left;
+      padding:10px 10px;
+      background: #F4F7FA;
+    }
+    .hero1 h1{color:#123B5D; margin-bottom:10px;}
+
+    .center {
+      margin-left: 1%;
+      padding:20px;
+    }
+
+hr {
+  border-color: #123B5D;
+  margin-left: 9px;
+  margin-right: 15px;
+}
+
+  /* ============================================================
+       ESTILOS DE CARDS DE RUTAS — No tocan nada fuera de .rutas
+    ============================================================ */
+
+    .rutas {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px 0;
+    }
+
+    .ruta-card {
+      border: 2px solid #123B5D;       
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .ruta-card:hover {
+      box-shadow: 0 4px 18px rgba(26, 58, 107, 0.18);
+    }
+
+    .ruta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      background: #ffffff;            
+      color: #ffffff;
+      user-select: none;
+      gap: 12px;
+      transition: background 0.2s ease;
+    }
+
+    .ruta-header:hover {
+      background: #1E88C8;
+    }
+
+    .ruta-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ruta-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .ruta-titulo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .ruta-recorrido-resumen {
+      font-size: 0.82rem;
+      opacity: 0.85;
+      margin: 2px 0 0;
+    }
+
+    /* Grupo de badges (buses + estado) */
+    .ruta-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge-buses {
+      background: #F4C542;             
+      color: #123B5D;
+    }
+
+    .badge-activa {
+      background: #E2F3E4;
+      color: #2E7D32;
+    }
+
+    /* Flecha animada */
+    .ruta-flecha {
+      font-size: 1rem;
+      transition: transform 0.35s ease;
+      opacity: 0.85;
+    }
+
+    .ruta-card.abierta .ruta-flecha {
+      transform: rotate(180deg);
+    }
+
+    .ruta-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding   0.35s ease;
+      padding: 0 22px;
+      background: #F4F7FA;
+    }
+
+    .ruta-card.abierta .ruta-body {
+      max-height: 1200px;            
+      padding: 20px 22px 24px;
+    }
+
+    /* Iframe del mapa */
+    .ruta-mapa {
+      width: 100%;
+      height: 260px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* Grid de detalles */
+    .ruta-detalles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .detalle-bloque {
+      background: #ffffff;
+      border: 1px solid #D7E2EA;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .detalle-bloque h4 {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #123B5D;
+      font-weight: 700;
+    }
+
+    .detalle-bloque ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 0.88rem;
+      color: #263238;
+      line-height: 1.7;
+    }
+
+    .detalle-bloque p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #263238;
+      line-height: 1.6;
+    }
+
+    .detalle-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: #263238;
+      margin-bottom: 4px;
+    }
+
+    .detalle-stat span.valor {
+      font-weight: 600;
+      color: #123B5D;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      .ruta-header {
+        padding: 14px 16px;
+      }
+
+      .ruta-titulo {
+        font-size: 1rem;
+      }
+
+      .badge {
+        font-size: 0.72rem;
+        padding: 3px 8px;
+      }
+
+      .ruta-card.abierta .ruta-body {
+        padding: 16px 16px 20px;
+      }
+
+      .ruta-mapa {
+        height: 200px;
+      }
+    }
+
+     .trae-presentacion {
+      background: #a0a0a000;
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin: 10px 0 28px;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      
+    }
+
+    /* Detalle decorativo de fondo */
+    .trae-presentacion::before {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 7rem;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .trae-presentacion h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 6px;
+      color: #123B5D;         
+      letter-spacing: 0.03em;
+
+    }
+
+    .trae-presentacion .trae-subtitulo {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .trae-presentacion p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      margin: 0 0 20px;
+      max-width: 680px;
+      opacity: 0.92;
+    }
+
+    
+    .trae-pilares {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+      color: #000000;
+
+    }
+
+    .pilar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.973);
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .pilar-icono {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 600px) {
+      .trae-presentacion {
+        padding: 24px 18px;
+      }
+
+      .trae-presentacion h2 {
+        font-size: 1.2rem;
+      }
+
+      .pilar {
+        min-width: 120px;
+        font-size: 0.82rem;
+      }
+    }
+
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+      body{
+      background:#F4F7FA;
+      object-fit: cover; 
+      display: block;
+    }
+
+    p {
+      color: #263238 ;
+    }
+    header{
+      background:#1E88C8;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+
+    .menu-links{
+      padding: auto;
+      display:flex;
+      align-items:center;
+    }
+    .hero0{
+      text-align:left;
+      padding: 10px;
+      background:#F4F7FA;
+    }
+    .hero0 h1{color:#123B5D; margin-bottom:10px;}
+    .rutas{
+      padding:10px;
+    }
+  .hero{
+      text-align:left;
+      padding:10px;
+      background:#F4F7FA;
+    
+    }
+    .hero h1{color:#123B5D; margin-bottom:10px;}
+    .rutas{
+      padding:10px;
+    }
+
+    .card{
+      background:white;
+      margin:15px auto;
+      padding:20px;
+      max-width:500px;
+      border-left:8px solid #000000;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer{
+      background:#1E88C8;
+      color:white;
+      text-align:center;
+      padding:15px;
+      margin-top:20px;
+    }
+
+    .banner img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+  
+
+.hero1{
+      text-align:left;
+      padding:10px 10px;
+      background:#F4F7FA ;
+    }
+    .hero1 h1{color:#123B5D; margin-bottom:10px;}
+
+    .center {
+      margin-left: 1%;
+      padding:20px;
+    }
+
+hr {
+  border-color: #123B5D;
+  margin-left: 9px;
+  margin-right: 15px;
+}
+
+  /* ============================================================
+       ESTILOS DE CARDS DE RUTAS 
+    ============================================================ */
+
+    .rutas {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px 0;
+    }
+
+    .ruta-card {
+      border: 2px solid #123B5D;       
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .ruta-card:hover {
+      box-shadow: 0 4px 18px rgba(26, 58, 107, 0.18);
+    }
+
+    /* Cabecera clickeable */
+    .ruta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      background: #ffffff;            
+      color: #ffffff;
+      user-select: none;
+      gap: 12px;
+      transition: background 0.2s ease;
+    }
+
+    .ruta-header:hover {
+      background: #1E88C8;
+    }
+
+    /* Icono de autobús + nombre */
+    .ruta-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ruta-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .ruta-titulo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .ruta-recorrido-resumen {
+      font-size: 0.82rem;
+      opacity: 0.85;
+      margin: 2px 0 0;
+    }
+
+    /* Grupo de badges (buses + estado) */
+    .ruta-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge-buses {
+      background: #F4C542;           
+      color: #123B5D;
+    }
+
+    .badge-activa {
+      background: #E2F3E4;
+      color: #2E7D32;
+    }
+
+    /* Flecha animada */
+    .ruta-flecha {
+      font-size: 1rem;
+      transition: transform 0.35s ease;
+      opacity: 0.85;
+    }
+
+    .ruta-card.abierta .ruta-flecha {
+      transform: rotate(180deg);
+    }
+
+    .ruta-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding   0.35s ease;
+      padding: 0 22px;
+      background: #F4F7FA;
+    }
+
+    .ruta-card.abierta .ruta-body {
+      max-height: 1200px;              
+      padding: 20px 22px 24px;
+    }
+
+    /* Iframe del mapa */
+    .ruta-mapa {
+      width: 100%;
+      height: 260px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* Grid de detalles */
+    .ruta-detalles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .detalle-bloque {
+      background: #ffffff;
+      border: 1px solid #D7E2EA;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .detalle-bloque h4 {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #123B5D;
+      font-weight: 700;
+    }
+
+    .detalle-bloque ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 0.88rem;
+      color: #263238;
+      line-height: 1.7;
+    }
+
+    .detalle-bloque p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #263238;
+      line-height: 1.6;
+    }
+
+    .detalle-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: #263238;
+      margin-bottom: 4px;
+    }
+
+    .detalle-stat span.valor {
+      font-weight: 600;
+      color: #123B5D;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      .ruta-header {
+        padding: 14px 16px;
+      }
+
+      .ruta-titulo {
+        font-size: 1rem;
+      }
+
+      .badge {
+        font-size: 0.72rem;
+        padding: 3px 8px;
+      }
+
+      .ruta-card.abierta .ruta-body {
+        padding: 16px 16px 20px;
+      }
+
+      .ruta-mapa {
+        height: 200px;
+      }
+    }
+
+     .trae-presentacion1 {
+      background: #a0a0a000;
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin: 10px 0 28px;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      
+    }
+
+    .trae-presentacion1::before {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 7rem;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .trae-presentacion1 h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 6px;
+      color: #123B5D;           
+      letter-spacing: 0.03em;
+
+    }
+
+    .trae-presentacion1 .trae-subtitulo {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .trae-presentacion1 p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      margin: 0 0 20px;
+      max-width: 680px;
+      opacity: 0.92;
+    }
+
+    
+    .trae-presentacion1 {
+      background: #a0a0a000;
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin: 10px 0 28px;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      
+    }
+
+    .trae-presentacion::before {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 7rem;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .trae-presentacion h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 6px;
+      color: #123B5D;           
+      letter-spacing: 0.03em;
+
+    }
+
+    .trae-presentacion .trae-subtitulo {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .trae-presentacion p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      margin: 0 0 20px;
+      max-width: 680px;
+      opacity: 0.92;
+    }
+
+    .trae-pilares {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .pilar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .pilar-icono {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 600px) {
+      .trae-presentacion {
+        padding: 24px 18px;
+      }
+
+      .trae-presentacion h2 {
+        font-size: 1.2rem;
+      }
+
+      .pilar {
+        min-width: 120px;
+        font-size: 0.82rem;
+      }
+    }
+
+/* ===== NOTICIAS ===== */
+.noticias {
+  padding: 20px 0 32px;
+}
+
+.noticias h2 {
+  font-size: 1.4rem;
+  color: #123B5D;
+  margin-bottom: 4px;
+}
+
+.noticias > center > p {
+  color: #546E7A;
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+}
+
+.noticias-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+  padding: 30px;
+}
+
+.noticia-card {
+  background: #ffffff;
+  border: 2px solid #123B5D;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.noticia-card:hover {
+  box-shadow: 0 4px 16px rgba(26, 58, 107, 0.18);
+}
+
+.noticia-fecha {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.noticia-card h3 {
+  font-size: 1rem;
+  color: #123B5D;
+  margin: 0;
+}
+
+.noticia-card p {
+  font-size: 0.88rem;
+  color: #37474F;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.noticia-tag {
+  display: inline-block;
+  background: #F4C542;
+  color: #123B5D;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+
+@media (max-width: 600px) {
+  .trae-presentacion {
+    flex-direction: column; /* Se apilan verticalmente en móvil */
+  }
+
+  .Autobusfoto {
+    width: 100%;
+  }
+}
+
+.trae-presentacion {
+  display: flex;
+  align-items: center;
+}
+
+.trae-presentacion .hero1 {
+  flex: 1; 
+}
+
+.Autobusfoto {
+  width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0; 
+  border: 3px solid #123B5D;
+}
+
+/* ============================================================
+       PÁGINA DE REGISTRO 
+    ============================================================ */
+
+    /* ---- Sección hero del registro ---- */
+    .registro-hero {
+      text-align: left;
+      padding: 10px;
+      background: #F4F7FA;
+    }
+    .registro-hero h1 { color: #123B5D; margin-bottom: 8px; }
+    .registro-hero p  { color: #263238; font-size: 0.95rem; }
+
+    /* ---- Bloque de ventajas ---- */
+    .ventajas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .ventaja-card {
+      background: #ffffff;
+      border-left: 6px solid #123B5D;
+      border-radius: 8px;
+      padding: 16px 18px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ventaja-icono {
+      font-size: 1.8rem;
+    }
+
+    .ventaja-card h3 {
+      font-size: 0.95rem;
+      color: #123B5D;
+      margin: 0;
+    }
+
+    .ventaja-card p {
+      font-size: 0.82rem;
+      color: #263238;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .tarjeta-preview-section {
+      background: #ffffff;
+      border-left: 6px solid #123B5D;
+      border-radius: 8px;
+      padding: 20px 22px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .tarjeta-preview-section .texto-tarjeta {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .tarjeta-preview-section h2 {
+      color: #123B5D;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .tarjeta-preview-section p {
+      font-size: 0.88rem;
+      color: #263238;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .tarjeta-mockup {
+      width: 280px;
+      min-width: 240px;
+      background: linear-gradient(135deg, #123B5D 0%, #0E2A42 100%);
+      border-radius: 14px;
+      padding: 20px 22px;
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(30,90,168,0.30);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tarjeta-mockup::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: rgba(250, 194, 20, 0.12);
+      border-radius: 50%;
+      top: -40px;
+      right: -40px;
+    }
+
+    .tarjeta-mockup::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      bottom: -30px;
+      left: -20px;
+    }
+
+    .tarjeta-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.75;
+      margin-bottom: 4px;
+    }
+
+    .tarjeta-nombre {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #F4F7FA;
+    }
+
+    .tarjeta-info-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      opacity: 0.85;
+      margin-bottom: 4px;
+    }
+
+    .tarjeta-chip {
+      width: 36px;
+      height: 26px;
+      background: linear-gradient(135deg, #F4F7FA, #e0a800);
+      border-radius: 5px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .tarjeta-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 10px;
+    }
+
+    .tarjeta-logo-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #F4F7FA;
+      letter-spacing: 0.05em;
+    }
+
+    .tarjeta-tipo {
+      font-size: 0.65rem;
+      opacity: 0.7;
+      text-align: right;
+    }
+
+    .divisor-registro {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .divisor-registro hr {
+      flex: 1;
+      border-color: #123B5D;
+      margin: 0;
+    }
+
+    .divisor-registro span {
+      color: #123B5D;
+      font-weight: 700;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .form-registro {
+      background: #ffffff;
+      border-left: 6px solid #123B5D;
+      border-radius: 8px;
+      padding: 24px 26px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .form-registro h2 {
+      color: #123B5D;
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+    }
+
+    /* Grid de campos */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    /* Campo que ocupa las 2 columnas completas */
+    .campo-completo {
+      grid-column: 1 / -1;
+    }
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .campo label {
+      font-size: 0.80rem;
+      font-weight: 700;
+      color: #123B5D;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .campo input,
+    .campo select {
+      padding: 10px 12px;
+      border: 1.5px solid #c8d8f0;
+      border-radius: 7px;
+      font-size: 0.88rem;
+      color: #263238;
+      background: #f7faff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+
+    .campo input:focus,
+    .campo select:focus {
+      border-color: #123B5D;
+      box-shadow: 0 0 0 3px rgba(30,90,168,0.12);
+      background: #fff;
+    }
+
+    .campo input::placeholder {
+      color: #aaa;
+      font-size: 0.82rem;
+    }
+
+    /* Separador de secciones dentro del form */
+    .form-seccion-titulo {
+      grid-column: 1 / -1;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e0e9f8;
+      margin-top: 6px;
+    }
+
+    /* Botón de envío */
+    .btn-registrar {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
+      background: #1E88C8;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-registrar:hover {
+      background: #0E2A42;
+      transform: translateY(-1px);
+    }
+
+    .btn-registrar:active {
+      transform: translateY(0);
+    }
+
+    /* Nota de privacidad */
+    .nota-privacidad {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .mensaje-exito {
+      display: none;
+      background: #E2F3E4;
+      border-left: 6px solid #2E7D32;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 16px;
+      color: #2E7D32;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      .tarjeta-preview-section {
+        flex-direction: column;
+      }
+
+      .tarjeta-mockup {
+        width: 100%;
+      }
+
+      .form-registro {
+        padding: 18px 16px;
+      }
+    }

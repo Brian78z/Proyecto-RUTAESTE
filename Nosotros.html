@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="icon" href="/img/LOGO.png">
+  <title>Nosotros| RUTAESTE</title>
+  <script src="/scripts/loader.js"></script>
+
+
+</head>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark"><img src="/img/logo.ico" ></div>
+      <div>TRAE ID<small>Identidad y seguridad estudiantil</small></div>
+    </div>
+    <nav id="nav">
+   <nav id="nav">
+      <button onclick="window.location.href='index.html'">Inicio</button>
+    <button onclick="window.location.href='#'" class="active">Nosotros</button>
+      <button onclick="window.location.href='registro_update.html'">Registro</button>  
+    </nav>
+  </div>
+</header>
+<body>
+  <div class="banner">
+  <img src="/img/banner new version.png" alt="Logo RUTAESTE">
+  </div>
+
+<div class="center">
+  <section class="trae-presentacion">
+<section class="hero">
+  <h1>¿Qué es RUTAESTE?</h1>
+  <p>El Sistema de Transporte Estudiantil del Ministerio de Educación es el servicio de transporte escolar diseñado e  </p> 
+  <p>implementado por el gobierno del presidente Luis Abinader, para garantizar que la llegada y salida de la escuela de </p>
+  <p>los estudiantes dominicanos <br>sea segura, cómoda y gratuita.</p>
+  <br>
+  <h2>Nuestros horarios de servicio son de lunes a viernes:</h2>
+</section>
+</div>
+<footer>
+  <p>© 2026 RUTAESTE | Transporte Estudiantil</p>
+</footer>
+
+</body>
+</html>
+
+
+
+<script>
+  // Bloquear Ctrl + rueda del mouse
+  document.addEventListener('wheel', function(e) {
+    if (e.ctrlKey) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Bloquear Ctrl + +, Ctrl + -, Ctrl + 0
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey &&
+       (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+      e.preventDefault();
+    }
+  });
+</script>
